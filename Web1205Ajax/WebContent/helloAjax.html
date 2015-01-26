@@ -1,0 +1,42 @@
+<html>
+<head><title> helloAjax.html</title>
+<script  type="text/javascript">
+var xhr = null;  
+
+function makeRequest() {
+   return new XMLHttpRequest();
+}// XMLHttpRequest 
+
+function requestHello(URL) {
+    param = MyForm.name.value;
+    URL = URL + "?name=" + encodeURIComponent(param);
+    xhr=makeRequest();
+    xhr.onreadystatechange = RP;  
+    xhr.open("GET", URL, true);
+    xhr.send(null); 
+}
+
+ 
+function  RP() { 
+    if (xhr.readyState == 4) {  
+        if (xhr.status == 200) {
+            var str = xhr.responseText;
+            document.getElementById("message").innerHTML = str;    
+        } else {
+            alert("Fail : " + httpRequest.status);
+        }
+    }
+}
+</script>
+</head>
+<body>
+<form name="MyForm">
+name: <input type="text" name="name">
+<input type="button" value="send" onclick="requestHello('hello.jsp')">
+
+</form>
+<div id="message"> </div>
+</body>
+</html>
+
+

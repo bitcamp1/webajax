@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/data" xmlns:tns="http://www.example.org/data" elementFormDefault="qualified">
+<element name="root"> 
+  <complexType> <!-- 하위 요소를 포함한 복잡한 구조라는 뜻 -->
+    <sequence><!-- 다음에 오는 요소들은 생략할 수 없고, 정의된 순서대로 와야 한다는 뜻 -->
+    	<element name="item" minOccurs="0" maxOccurs="unbounded">
+<!-- 멤버 요소는 0 ~ 무제한 등장할 수 있다 -->
+    		<complexType>
+    			<sequence>
+    				<element name="no" type="string" /><!-- 데이터형은 string 이다. -->
+    				<element name="title" type="string" />
+    				<element name="author" type="string" />
+    			</sequence>
+    			<attribute name="author" type="string" /><!-- 속성 선언 -->
+    		</complexType>
+    	</element>
+    </sequence>
+  </complexType>
+</element>
+</schema>

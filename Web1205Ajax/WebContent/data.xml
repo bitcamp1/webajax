@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.example.org/data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/data data.xsd ">
+<item>
+  <no>1</no>
+  <title>jsp</title>
+  <author>me</author>
+ </item>
+ 
+ <item>
+  <no>2</no>
+  <title>spring</title>
+  <author>이민호</author>
+ </item>
+ 
+ <item>
+  <no>3</no>
+  <title>aps</title>
+  <author>홍길동</author>
+ </item>
+ 
+ <item>
+  <no>4</no>
+  <title>C++</title>
+  <author>이순신</author>
+ </item>
+ 
+ <item>
+  <no>5</no>
+  <title>php</title>
+  <author>오경원</author>
+ </item>
+</root>

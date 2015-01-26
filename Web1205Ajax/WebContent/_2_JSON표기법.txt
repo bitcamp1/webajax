@@ -1,0 +1,35 @@
+<!-- 
+	::JSON(Javascript Object Notation)
+	서로 다른 프로그램에서 데이타 교환하기 위한 표기법
+	  
+	::표현법
+	  1) 이름/값 형식 
+	  2) 배열-> {이름/값,.....};
+	     ex) var cnt = {c1:First,c2:Second,c3:Third}
+	         var c1_value = cnt.c1; ( First )
+	         var c2_value = cnt.c2; //Second
+	         var c3_value = cnt['c3']; //Third
+
+ -->
+ <script type="text/javascript">
+ 	var mem={lee:"LEE",park:"PARK",kim:"KIM"};
+    document.write(mem.park+"<br>");
+    document.write(mem['kim']+"<br>");
+
+    var mem1 =["ONE","TWO","THREE"];
+    document.write(mem1[2]+"<br>");
+
+    var mem2 = [ 
+                {kim:"KKK",nam:"NAM"},
+                {lee:"LEE",choi:"CHOI"},
+                {yang:"YANG",park:"PARK"},
+               ];
+    document.write(mem2[1].choi+"<br>");
+
+    var mem3 = {
+                c1:["KIM","LEE"],
+                c2:["GOO","PARK"],
+                c3:["NMA","CHOI"]
+    };
+    document.write(mem3.c1[1]+"<br>");
+ </script>

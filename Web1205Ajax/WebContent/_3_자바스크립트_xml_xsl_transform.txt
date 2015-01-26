@@ -1,0 +1,18 @@
+
+
+
+var dis = document.getElementById("dis");
+if(window.ActiveXObject){
+        var htmlText = xmlDoc.transformNode(xslDoc);
+        dis.innerHTML = htmlText;
+         
+}else{
+        // XSLT변환장치 객체 생성
+        var xslt = new XSLTProcessor();
+        // 변환장치 객체에 xsl인식
+        xslt.importStyleSheet(xslDoc);
+
+        var htmlText = xslt.transformToFragment(xmlDoc.document);
+        dis.appendChild(htmlText);
+        
+}

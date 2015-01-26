@@ -1,0 +1,42 @@
+
+-- 자바스크립트 함수 -----------------------------------------------------------------------------------
+var mapObj=null;
+function viewMap(x,y)
+{
+    
+    // 새로운 네이버 지도 객체를 생성하여, 컨테이너 상에 지도를 표시
+    if(mapObj==null)
+         mapObj = new NMap(document.getElementById('mapContainer'),600,400);
+    // 지도 객체의 중심점과 축척 레벨을 설정
+    mapObj.setCenterAndZoom(new NPoint(x,y),3);
+}
+
+-- 네이버 맵컨츠롤 배치 --------------------------------------------------------------------------------
+<SCRIPT LANGUAGE="JavaScript" src="http://maps.naver.com/js/naverMap.naver?key=214265c72d2020468130d7432cc29fec"></SCRIPT>
+<div id='mapContainer' style='width:300px;height:300px'></div> 
+
+
+-- 맵데이터를 동별목록으로 나타주는 xsl-----------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:m="naver:openapi" version="1.0">
+    <xsl:output method="html"/>
+
+    <!-- TODO customize transformation rules 
+         syntax recommendation http://www.w3.org/TR/xslt 
+    -->
+    <xsl:template match="/">
+        <table>
+       <xsl:for-each select="m:geocode/m:item">
+         <tr style="cursor:hand" onmouseover="this.style.background='lightsteelblue'" onmouseout="this.style.background='#f4fff4'">
+         <td style="font-size:9pt">
+            <xsl:attribute name="onclick">
+              <![CDATA[viewMap(]]><xsl:value-of select="m:point/m:x"/>,<xsl:value-of select="m:point/m:y"/><![CDATA[)]]>
+            </xsl:attribute>
+            <xsl:value-of select="m:address"/>
+         </td>
+         </tr> 
+       </xsl:for-each>
+       </table>
+    </xsl:template>
+</xsl:stylesheet>

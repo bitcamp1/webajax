@@ -1,0 +1,47 @@
+1.XMLHttpRequest 
+	var  xhr;
+	if(window.ActiveXObject)
+		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+	else if(window.XMLHttpRequest)
+		xhr = new XMLHttpRequest();
+
+2.CallBack  
+	xhr.onreadystatechange = RP
+	
+
+3.작업요청(GET/POST)
+	-open("GET/POST", documen , "TRUE")
+
+	-GET
+		xhr.open("GET","ex.jsp?no=3",true);
+		xhr.send(null);
+	-POST
+		xhr.open("POST","ex.jsp",true);
+		xhr.send("no=3");
+    
+4.RP( )
+	var code = xhr.readyState;
+		0 : uninitialize
+		1 : loading
+		2 : loaded
+		3 : interactive
+		4 : complete
+	var status = xhr.status;
+		200 : complete
+		404 : Not Found
+		500 : Syntax Error
+5.데이타수신
+ function RP()
+ {
+      if(xhr.readyState==4 && xhr.status==200) {
+		//Text Data
+	 		var data = xhr.responseText;
+    	//JSON
+        	var json = eval(xhr.responseText);
+		//Xml Data
+			var data = xhr.responseXml;
+      }
+ }
+
+6.한글처리
+   encodeURIComponent(str)
